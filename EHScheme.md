@@ -612,7 +612,7 @@ uint64 _Unwind_GetIP(struct _Unwind_Context *context);
 void _Unwind_SetIP(struct _Unwind_Context *context, uint64 new_value);
 ```
 This sets/gets a real IP address in Dwarf CFI, but in our scheme `_Unwind_GetIP`
-returns the value of (landing pad index - 1). The landing pad index is set by
+returns the value of (landing pad index + 1). The landing pad index is set by
 compiler-generated user code to `__wasm_lpad_context.lpad_index` as discussed in
 [Landing Pad Code](#landing-pad-code). This information is used in the
 personality function to query the call site table. `_Unwind_SetIP` is not used.
